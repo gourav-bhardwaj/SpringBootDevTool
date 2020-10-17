@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import io.swagger.annotations.ApiModelProperty;
 
 @Entity
-public class Book implements IProduct {
+public class Book {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -53,11 +53,6 @@ public class Book implements IProduct {
 
 	public void setDiscount(int discount) {
 		this.discount = discount;
-	}
-
-	@Override
-	public float actualAmount(IProductVisitor visitor) {
-		return visitor.visit(this);
 	}
 
 }
