@@ -26,7 +26,7 @@ public class BookController {
 	@Autowired
 	private IBookService BookService;
 
-	@PostMapping("/demojj")
+	@PostMapping("/demoii")
 	public ResponseEntity<Map<String, Object>> demoSave(@RequestBody Book book) {
 		Map<String, Object> body = new HashMap<String, Object>();
 		body.put("timestamp", LocalDateTime.now());
