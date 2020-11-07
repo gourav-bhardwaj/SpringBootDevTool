@@ -31,7 +31,7 @@ public class BookController {
 		Map<String, Object> body = new HashMap<String, Object>();
 		body.put("timestamp", LocalDateTime.now());
 		body.put("data", book);
-		return new ResponseEntity<Map<String,Object>>(body, HttpStatus.CREATED);
+		return new ResponseEntity<Map<String,Object>>(body, HttpStatus.OK);
 	}
 
 	@PostMapping("/save")
