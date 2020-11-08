@@ -24,53 +24,45 @@ import com.docker.service.IBookService;
 public class BookController {
 
 	@Autowired
-	private IBookService BookService;
-
-	@PostMapping("/demoo")
-	public ResponseEntity<Map<String, Object>> demoSave(@RequestBody Book book) {
-		Map<String, Object> body = new HashMap<String, Object>();
-		body.put("timestamp", LocalDateTime.now());
-		body.put("data", book);
-		return new ResponseEntity<Map<String,Object>>(body, HttpStatus.OK);
-	}
+	private IBookService bookService;
 
 	@PostMapping("/save")
 	public ResponseEntity<Map<String, Object>> saveBook(@RequestBody Book book) {
-		Map<String, Object> body = new HashMap<String, Object>();
+		Map<String, Object> body = new HashMap<>();
 		body.put("timestamp", LocalDateTime.now());
-		body.put("data", BookService.saveBook(book));
+		body.put("data", bookService.saveBook(book));
 		return new ResponseEntity<Map<String,Object>>(body, HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/update")
 	public ResponseEntity<Map<String, Object>> updateBook(@RequestBody Book book) {
-		Map<String, Object> body = new HashMap<String, Object>();
+		Map<String, Object> body = new HashMap<>();
 		body.put("timestamp", LocalDateTime.now());
-		body.put("data", BookService.updateBook(book));
+		body.put("data", bookService.updateBook(book));
 		return new ResponseEntity<Map<String,Object>>(body, HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Map<String, Object>> deleteBook(@PathVariable("id") int bookId) {
-		Map<String, Object> body = new HashMap<String, Object>();
+		Map<String, Object> body = new HashMap<>();
 		body.put("timestamp", LocalDateTime.now());
-		body.put("data", BookService.deleteBook(bookId));
+		body.put("data", bookService.deleteBook(bookId));
 		return new ResponseEntity<Map<String,Object>>(body, HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Map<String, Object>> getBook(@PathVariable("id") int bookId) {
-		Map<String, Object> body = new HashMap<String, Object>();
+		Map<String, Object> body = new HashMap<>();
 		body.put("timestamp", LocalDateTime.now());
-		body.put("data", BookService.getBook(bookId));
+		body.put("data", bookService.getBook(bookId));
 		return new ResponseEntity<Map<String,Object>>(body, HttpStatus.OK);
 	}
 	
 	@GetMapping("/all")
 	public ResponseEntity<Map<String, Object>> getBooks() {
-		Map<String, Object> body = new HashMap<String, Object>();
+		Map<String, Object> body = new HashMap<>();
 		body.put("timestamp", LocalDateTime.now());
-		body.put("data", BookService.getBooks());
+		body.put("data", bookService.getBooks());
 		return new ResponseEntity<Map<String,Object>>(body, HttpStatus.OK);
 	}
 	
