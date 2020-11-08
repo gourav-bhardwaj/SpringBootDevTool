@@ -74,39 +74,24 @@
 		</dependency>
 	</dependencies>
 
-	<profiles>
-		<profile>
-			<id>sonar</id>
-			<properties>
-				<sonar.projectKey>gourav-bhardwaj_SpringBootDevTool</sonar.projectKey>
-				<sonar.organization>gourav-bhardwaj</sonar.organization>
-				<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-			</properties>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.sonarsource.scanner.maven</groupId>
-						<artifactId>sonar-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<phase>verify</phase>
-								<goals>
-									<goal>sonar</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-
 	<build>
 		<finalName>spring-boot-dev-tool</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>verify</phase>
+						<goals>
+							<goal>sonar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
